@@ -114,64 +114,17 @@
 
 //4
 
-function tickets(money){
-    let arrMoney = [];
-    arrMoney[0]= money[0];
-    console.log(arrMoney);
-    let yes = 'YES' , no = 'NO';
+function getMiddle(s) {
 
-    for (let i = 1; i < money.length; i++){ 
-        //25
-        if(money[i] == 25){
-            arrMoney.push(25);
-        }
+    var arr = s.split('');
+    var a = arr.length / 2;
 
-        //50 
-        if(money[i] == 50){
-            for (let j = 0; j < arrMoney.length; j++) {
-                if (arrMoney[j] == 25) {
-                        arrMoney.splice(j,1);
-                        arrMoney.push(50);
-                        break;
-                }
-                else{
-                    console.log(no);
-                    return no;
-                }
-                
-            }
-        }
-        let n = 0;
-        //100
-
-        if(money[i] == 100){
-            console.log(n);
-            for (let f = 0; f < money.length; f++) {
-                if(money[f] == 50){
-               
-                    for (let c = 0; c < 3; c++) {
-                        if(money[c] == 25){
-                            arrMoney.splice(c,1);
-                            arrMoney.splice(f,1);
-                            arrMoney.push(100);
-                            break;
-                        }
-                    }
-                
-                }
-                else if(money[f] == 25){
-                        if(arrMoney[f] == 25){
-                            n++;
-                            console.log(n);
-                        }
-                }
-                if (n == 3) {
-                    arrMoney.push(100);
-                    console.log(arrMoney);
-                }
-            }
-        }
+    if (arr.length % 2 == 0) {
+        return arr[a-1] + arr[a];  
+    }
+    
+    if (arr.length % 2 == 1) {
+        return (arr[Math.round(a-1)]);
     }
 }
-    
-tickets([25,25,25,100]);
+getMiddle('a');
